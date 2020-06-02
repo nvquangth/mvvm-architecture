@@ -1,9 +1,5 @@
 package com.example.buildsrc
 
-object Modules {
-
-}
-
 object Versions {
     const val kotlin = "1.3.72"
     const val androidGradlePlugin = "4.0.0"
@@ -166,5 +162,33 @@ object AndroidJUnit {
 }
 
 object BuildType {
+    const val debug = "debug"
+    const val minifyDebug = false
+    const val proguardDebug = "proguard-rule.pro"
 
+    const val release = "release"
+    const val minifyRelease = false
+    const val proguardRelease = "proguard-release.pro"
+}
+
+object ProductFlavor {
+    const val develop = "develop"
+    const val applicationIdDevelop = "com.example.mvvmarchitecture.dev"
+    const val versionCodeDevelop = 201
+    const val versionNameDevelop = "2.0.1"
+    const val baseUrlDevelop = ""
+
+    const val staging = "staging"
+    const val applicationIdStaging = "com.example.mvvmarchitecture.stg"
+    const val versionCodeStaging = 115
+    const val versionNameStaging = "1.1.5"
+    const val baseUrlStaging = ""
+
+    const val production = "production"
+    const val applicationIdProduction = "com.example.mvvmarchitecture.pro"
+    const val versionCodeProduction = 100
+    const val versionNameProduct = "1.0.0"
+    const val baseUrlProduction = ""
+
+    const val baseUrlParam = "BASE_URL"
 }

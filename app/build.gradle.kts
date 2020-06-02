@@ -25,7 +25,54 @@ android {
     }
 
     buildTypes {
+        getByName(com.example.buildsrc.BuildType.debug) {
+            isMinifyEnabled = com.example.buildsrc.BuildType.minifyDebug
+            proguardFile(com.example.buildsrc.BuildType.proguardDebug)
+        }
 
+        getByName(com.example.buildsrc.BuildType.release) {
+            isMinifyEnabled = com.example.buildsrc.BuildType.minifyRelease
+            proguardFile(com.example.buildsrc.BuildType.proguardRelease)
+        }
+    }
+
+    flavorDimensions("version")
+    productFlavors {
+        create(com.example.buildsrc.ProductFlavor.develop) {
+            applicationId = com.example.buildsrc.ProductFlavor.applicationIdDevelop
+            versionCode = com.example.buildsrc.ProductFlavor.versionCodeDevelop
+            versionName = com.example.buildsrc.ProductFlavor.versionNameDevelop
+
+            buildConfigField(
+                "String",
+                com.example.buildsrc.ProductFlavor.baseUrlParam,
+                com.example.buildsrc.ProductFlavor.baseUrlDevelop
+            )
+        }
+
+        create(com.example.buildsrc.ProductFlavor.staging) {
+            applicationId = com.example.buildsrc.ProductFlavor.applicationIdStaging
+            versionCode = com.example.buildsrc.ProductFlavor.versionCodeStaging
+            versionName = com.example.buildsrc.ProductFlavor.versionNameStaging
+
+            buildConfigField(
+                "String",
+                com.example.buildsrc.ProductFlavor.baseUrlParam,
+                com.example.buildsrc.ProductFlavor.baseUrlStaging
+            )
+        }
+
+        create(com.example.buildsrc.ProductFlavor.production) {
+            applicationId = com.example.buildsrc.ProductFlavor.applicationIdProduction
+            versionCode = com.example.buildsrc.ProductFlavor.versionCodeProduction
+            versionName = com.example.buildsrc.ProductFlavor.versionNameProduct
+
+            buildConfigField(
+                "String",
+                com.example.buildsrc.ProductFlavor.baseUrlParam,
+                com.example.buildsrc.ProductFlavor.baseUrlProduction
+            )
+        }
     }
 
     compileOptions {
