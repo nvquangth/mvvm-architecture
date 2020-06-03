@@ -175,20 +175,20 @@ object ProductFlavor {
     const val develop = "develop"
     const val applicationIdDevelop = "com.example.mvvmarchitecture.dev"
     const val versionCodeDevelop = 201
-    const val versionNameDevelop = "2.0.1"
-    const val baseUrlDevelop = "https://gentle-fjord-54250.herokuapp.com/"
+    const val versionNameDevelop = "\"2.0.1\""
+    const val baseUrlDevelop = "\"https://gentle-fjord-54250.herokuapp.com/\""
 
     const val staging = "staging"
     const val applicationIdStaging = "com.example.mvvmarchitecture.stg"
     const val versionCodeStaging = 115
-    const val versionNameStaging = "1.1.5"
-    const val baseUrlStaging = ""
+    const val versionNameStaging = "\"1.1.5\""
+    const val baseUrlStaging = "\"https://gentle-fjord-54250.herokuapp.com/staging/\""
 
     const val production = "production"
     const val applicationIdProduction = "com.example.mvvmarchitecture.pro"
     const val versionCodeProduction = 100
-    const val versionNameProduct = "1.0.0"
-    const val baseUrlProduction = ""
+    const val versionNameProduct = "\"1.0.0\""
+    const val baseUrlProduction = "\"https://gentle-fjord-54250.herokuapp.com/api/\""
 
     const val baseUrlParam = "BASE_URL"
 }
