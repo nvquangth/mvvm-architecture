@@ -176,7 +176,7 @@ object ProductFlavor {
     const val applicationIdDevelop = "com.example.mvvmarchitecture.dev"
     const val versionCodeDevelop = 201
     const val versionNameDevelop = "2.0.1"
-    const val baseUrlDevelop = ""
+    const val baseUrlDevelop = "https://gentle-fjord-54250.herokuapp.com/"
 
     const val staging = "staging"
     const val applicationIdStaging = "com.example.mvvmarchitecture.stg"
