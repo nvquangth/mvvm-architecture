@@ -3,6 +3,7 @@ package com.example.mvvmarchitecture.di
 import android.content.Context
 import androidx.room.Room
 import com.example.mvvmarchitecture.data.local.sqlite.AppDatabase
+import com.example.mvvmarchitecture.util.Constants
 import org.koin.dsl.module
 
 /**
@@ -16,7 +17,7 @@ val databaseModule = module {
 }
 
 fun provideDatabase(context: Context) =
-    Room.databaseBuilder(context, AppDatabase::class.java, "").build()
+    Room.databaseBuilder(context, AppDatabase::class.java, Constants.DATABASE_NAME).build()
 
 fun provideCategoryDao(database: AppDatabase) = database.categoryDao()
 
