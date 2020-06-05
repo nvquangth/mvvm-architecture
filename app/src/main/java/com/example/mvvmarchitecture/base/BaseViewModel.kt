@@ -11,13 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.ConnectException
+import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 /**
  * Created by Quang Nguyen on 6/3/20.
  */
-abstract class BaseViewModel: ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     /**
      * This variable is private because we do not want to expose MutableLiveData
@@ -53,7 +54,7 @@ abstract class BaseViewModel: ViewModel() {
     val unknownErrorEvent: LiveData<Unit>
         get() = _unknownErrorEvent
 
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { context, throwable ->
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         viewModelScope.launch {
             onError(throwable)
         }
@@ -61,7 +62,7 @@ abstract class BaseViewModel: ViewModel() {
 
     open suspend fun onError(throwable: Throwable) {
         withContext(Dispatchers.Main) {
-            when(throwable) {
+            when (throwable) {
                 is UnknownHostException -> _noInternetConnectionEvent.call()
 
                 is ConnectException -> _noInternetConnectionEvent.call()
@@ -70,6 +71,14 @@ abstract class BaseViewModel: ViewModel() {
 
                 else -> {
                     val baseException = convertToBaseException(throwable)
+
+                    when (baseException.httpCode) {
+                        HttpURLConnection.HTTP_UNAUTHORIZED -> _errorMessage.value =
+                            baseException.message
+                        HttpURLConnection.HTTP_INTERNAL_ERROR -> _errorMessage.value =
+                            baseException.message
+                        else -> _unknownErrorEvent.call()
+                    }
                 }
             }
         }
