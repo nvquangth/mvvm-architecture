@@ -54,7 +54,7 @@ abstract class BaseViewModel : ViewModel() {
     val unknownErrorEvent: LiveData<Unit>
         get() = _unknownErrorEvent
 
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+    private val coroutineExceptionHandlerScope = CoroutineExceptionHandler { _, throwable ->
         viewModelScope.launch {
             onError(throwable)
         }
