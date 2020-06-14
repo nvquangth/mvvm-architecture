@@ -151,7 +151,7 @@ object Android {
     const val applicationId = "com.example.mvvmarchitecture"
     const val compileSdk = 29
     const val buildTools = "29.0.3"
-    const val minSdk = 19
+    const val minSdk = 21
     const val targetSdk = 29
     const val versionCode = 100
     const val versionNam = "1.0.0"

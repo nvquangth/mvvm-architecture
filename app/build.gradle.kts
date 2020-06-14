@@ -80,6 +80,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     buildFeatures {
         dataBinding = true
     }
@@ -119,7 +123,7 @@ dependencies {
     // Room
     implementation(com.example.buildsrc.Libs.room)
     implementation(com.example.buildsrc.Libs.roomExt)
-    implementation(com.example.buildsrc.Libs.roomProcessor)
+    kapt(com.example.buildsrc.Libs.roomProcessor)
 
     // ViewPager2
     implementation(com.example.buildsrc.Libs.viewPager2)
