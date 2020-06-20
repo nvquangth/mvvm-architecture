@@ -2,7 +2,7 @@ package com.example.mvvmarchitecture.data.remote
 
 import com.example.mvvmarchitecture.data.model.Category
 import com.example.mvvmarchitecture.data.model.Recipe
-import com.example.mvvmarchitecture.util.Constants
+import com.example.mvvmarchitecture.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

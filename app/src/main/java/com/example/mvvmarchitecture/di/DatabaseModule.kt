@@ -3,7 +3,7 @@ package com.example.mvvmarchitecture.di
 import android.content.Context
 import androidx.room.Room
 import com.example.mvvmarchitecture.data.local.sqlite.AppDatabase
-import com.example.mvvmarchitecture.util.Constants
+import com.example.mvvmarchitecture.utils.Constants
 import org.koin.dsl.module
 
 /**

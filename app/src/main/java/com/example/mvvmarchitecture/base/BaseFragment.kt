@@ -14,9 +14,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.mvvmarchitecture.BR
 import com.example.mvvmarchitecture.R
-import com.example.mvvmarchitecture.util.dismissLoadingDialog
-import com.example.mvvmarchitecture.util.showDialog
-import com.example.mvvmarchitecture.util.showLoadingDialog
+import com.example.mvvmarchitecture.utils.dismissLoadingDialog
+import com.example.mvvmarchitecture.utils.showDialog
+import com.example.mvvmarchitecture.utils.showLoadingDialog
 
 /**
  * Created by Quang Nguyen on 6/3/20.

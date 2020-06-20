@@ -2,7 +2,7 @@ package com.example.mvvmarchitecture.di
 
 import com.example.mvvmarchitecture.BuildConfig
 import com.example.mvvmarchitecture.data.remote.ApiService
-import com.example.mvvmarchitecture.util.Constants
+import com.example.mvvmarchitecture.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

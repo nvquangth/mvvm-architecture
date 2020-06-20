@@ -1,4 +1,4 @@
-package com.example.mvvmarchitecture.util
+package com.example.mvvmarchitecture.utils
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.example.mvvmarchitecture.util
+package com.example.mvvmarchitecture.utils
 
 /**
  * Created by Quang Nguyen on 6/3/20.

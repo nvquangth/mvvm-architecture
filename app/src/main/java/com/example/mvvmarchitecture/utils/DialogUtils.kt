@@ -1,4 +1,4 @@
-package com.example.mvvmarchitecture.util
+package com.example.mvvmarchitecture.utils
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
