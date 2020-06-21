@@ -2,6 +2,7 @@ package com.example.mvvmarchitecture.data.remote
 
 import com.example.mvvmarchitecture.data.model.Category
 import com.example.mvvmarchitecture.data.model.Recipe
+import com.example.mvvmarchitecture.data.model.response.CategoryListResponse
 import com.example.mvvmarchitecture.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -9,7 +10,7 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("category")
-    suspend fun getCategories(): List<Category>
+    suspend fun getCategories(): CategoryListResponse
 
     @GET("category/{category_id}?limit={limit}&&offset={offset}")
     suspend fun getRecipesByCategory(
