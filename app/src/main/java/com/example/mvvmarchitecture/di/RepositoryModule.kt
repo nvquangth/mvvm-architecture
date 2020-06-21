@@ -1,5 +1,6 @@
 package com.example.mvvmarchitecture.di
 
+import com.example.mvvmarchitecture.data.repository.CategoryRepository
 import org.koin.dsl.module
 
 /**
@@ -7,5 +8,5 @@ import org.koin.dsl.module
  */
 
 val repositoryModule = module {
-
+    single { CategoryRepository(get(), get()) }
 }

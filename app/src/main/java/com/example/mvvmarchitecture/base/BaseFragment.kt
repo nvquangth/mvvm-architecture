@@ -89,9 +89,9 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
         }
     }
 
-    fun showErrorMessage(message: String?) {
-        if (message.isNullOrEmpty()) return
+    private fun showErrorMessage(msg: String?) {
+        if (msg.isNullOrEmpty() || msg.isBlank()) return
 
-        context?.showDialog()
+        context?.showDialog(message = msg)
     }
 }

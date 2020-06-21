@@ -36,7 +36,7 @@ fun dismissLoadingDialog() {
 fun Context?.showDialog(
     cancelable: Boolean = false,
     cancelOnTouchOutside: Boolean = true,
-    title: String? = null,
+    title: String? = this?.resources?.getString(R.string.notification),
     message: String? = null,
     textPositive: String? = this?.resources?.getString(android.R.string.ok),
     textPositiveClickListener: (() -> Unit)? = null,
