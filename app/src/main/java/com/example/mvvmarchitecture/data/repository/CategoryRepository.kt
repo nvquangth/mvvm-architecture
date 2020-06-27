@@ -15,7 +15,7 @@ class CategoryRepository(
 
     val categoryList: LiveData<List<Category>> = dao.getCategories()
 
-    suspend fun fetchCategory() {
+    suspend fun refreshCategoryList() {
         val data = api.getCategories()
         dao.insert(data.result)
     }

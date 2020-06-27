@@ -16,7 +16,7 @@ class CategoryListViewModel(
 
     fun fetchCategoryList() {
         viewModelScope.launch(coroutineExceptionHandlerScope) {
-            repository.fetchCategory()
+            repository.refreshCategoryList()
         }
     }
 }
