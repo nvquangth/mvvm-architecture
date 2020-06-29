@@ -14,45 +14,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardCategory"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageCategory"
+            glideUrlCategory="@{item.images}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="1, 1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imageCategory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_transparent_48"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_32"
+            android:text="@{item.name}"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCategory"
+            app:layout_constraintEnd_toEndOf="@+id/imageCategory"
+            app:layout_constraintStart_toStartOf="@+id/imageCategory"
+            tools:text="Banh ngot" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@color/color_transparent_48"
-                android:gravity="center"
-                android:paddingTop="@dimen/dp_8"
-                android:paddingBottom="@dimen/dp_32"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/sp_18"
-                android:textStyle="bold"
-                tools:text="Banh ngot" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center"
-                android:layout_marginBottom="@dimen/dp_4"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/sp_16"
-                tools:text="1234 mon" />
-        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_4"
+            android:gravity="center"
+            android:text='@{String.valueOf(item.totalRecipe) + " món"}'
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintBottom_toBottomOf="@+id/textTitle"
+            app:layout_constraintEnd_toEndOf="@+id/textTitle"
+            app:layout_constraintStart_toStartOf="@+id/textTitle"
+            tools:text="1234 mon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
