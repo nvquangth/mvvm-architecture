@@ -56,6 +56,9 @@ object Versions {
 
     // CardView
     const val cardView = "1.0.0"
+
+    // Preference
+    const val preference = "1.1.1"
 }
 
 object Libs {
@@ -129,6 +132,9 @@ object Libs {
 
     // CardView
     const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
+
+    // Preference
+    const val preference =  "androidx.preference:preference-ktx:${Versions.preference}"
 }
 
 object BuildPlugins {

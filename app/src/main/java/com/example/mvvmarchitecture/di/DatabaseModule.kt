@@ -1,9 +1,13 @@
 package com.example.mvvmarchitecture.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
+import com.example.mvvmarchitecture.data.local.pref.AppPref
+import com.example.mvvmarchitecture.data.local.pref.PrefHelper
 import com.example.mvvmarchitecture.data.local.sqlite.AppDatabase
 import com.example.mvvmarchitecture.utils.Constants
+import com.google.gson.Gson
 import org.koin.dsl.module
 
 /**
@@ -14,6 +18,9 @@ val databaseModule = module {
     single { provideDatabase(get()) }
     single { provideCategoryDao(get()) }
     single { provideRecipeDao(get()) }
+    single { provideGson() }
+    single { provideSharedPreference(get()) }
+    single<PrefHelper> { AppPref(get(), get()) }
 }
 
 fun provideDatabase(context: Context) =
@@ -22,3 +29,8 @@ fun provideDatabase(context: Context) =
 fun provideCategoryDao(database: AppDatabase) = database.categoryDao()
 
 fun provideRecipeDao(database: AppDatabase) = database.recipeDao()
+
+fun provideGson() = Gson()
+
+fun provideSharedPreference(context: Context) =
+    context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)

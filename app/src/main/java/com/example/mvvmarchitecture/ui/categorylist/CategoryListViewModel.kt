@@ -12,11 +12,21 @@ class CategoryListViewModel(
     private val repository: CategoryRepository
 ): BaseViewModel() {
 
+    init {
+        fetchCategories()
+    }
+
     val categoryList = repository.categoryList
 
-    fun fetchCategoryList() {
+    fun fetchCategories() {
         viewModelScope.launch(coroutineExceptionHandlerScope) {
-            repository.refreshCategoryList()
+            repository.fetchCategories()
+        }
+    }
+
+    fun refreshCategories() {
+        viewModelScope.launch(coroutineExceptionHandlerScope) {
+            repository.refreshCategory()
         }
     }
 }

@@ -159,4 +159,7 @@ dependencies {
 
     // CardView
     implementation(com.example.buildsrc.Libs.cardView)
+
+    // Preference
+    implementation(com.example.buildsrc.Libs.preference)
 }
