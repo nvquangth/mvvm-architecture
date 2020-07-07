@@ -2,7 +2,6 @@ package com.example.mvvmarchitecture.ui.categorylist
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.mvvmarchitecture.base.BaseFragment
 import com.example.mvvmarchitecture.databinding.FragmentCategoryListBinding
@@ -31,12 +30,9 @@ class CategoryListFragment : BaseFragment<FragmentCategoryListBinding, CategoryL
         }
 
         viewModel.apply {
-            categoryList.observe(viewLifecycleOwner, Observer {
-                if (it.isNullOrEmpty()) {
-                    Toast.makeText(context, "Data empty", Toast.LENGTH_SHORT).show()
-                } else {
-                    categoryAdapter.submitList(it.toMutableList())
-                }
+            categories.observe(viewLifecycleOwner, Observer {
+                viewBinding.resource = it
+                categoryAdapter.submitList(it.data?.toMutableList())
             })
         }
     }

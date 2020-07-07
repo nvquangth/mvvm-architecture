@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mvvmarchitecture.data.remote.convertToBaseException
 import com.example.mvvmarchitecture.utils.SingleLiveEvent
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -70,15 +69,15 @@ abstract class BaseViewModel : ViewModel() {
                 is SocketTimeoutException -> _connectTimeoutEvent.call()
 
                 else -> {
-                    val baseException = convertToBaseException(throwable)
-
-                    when (baseException.httpCode) {
-                        HttpURLConnection.HTTP_UNAUTHORIZED -> _errorMessage.value =
-                            baseException.message
-                        HttpURLConnection.HTTP_INTERNAL_ERROR -> _errorMessage.value =
-                            baseException.message
-                        else -> _unknownErrorEvent.call()
-                    }
+//                    val baseException = convertToBaseException(throwable)
+//
+//                    when (baseException.httpCode) {
+//                        HttpURLConnection.HTTP_UNAUTHORIZED -> _errorMessage.value =
+//                            baseException.message
+//                        HttpURLConnection.HTTP_INTERNAL_ERROR -> _errorMessage.value =
+//                            baseException.message
+//                        else -> _unknownErrorEvent.call()
+//                    }
                 }
             }
         }
