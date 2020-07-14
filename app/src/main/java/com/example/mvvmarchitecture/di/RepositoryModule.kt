@@ -8,5 +8,5 @@ import org.koin.dsl.module
  */
 
 val repositoryModule = module {
-    single { CategoryRepository(get(), get(), get()) }
+    single { CategoryRepository(get(), get()) }
 }
