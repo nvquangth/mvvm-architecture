@@ -10,5 +10,5 @@ class CategoryListViewModel(
     private val repository: CategoryRepository
 ): BaseViewModel() {
 
-    val categories = repository.categories
+    val categories = repository.categories()
 }
