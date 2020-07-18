@@ -7,6 +7,7 @@ import com.example.mvvmarchitecture.base.BaseFragment
 import com.example.mvvmarchitecture.databinding.FragmentCategoryListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.mvvmarchitecture.R
+import com.example.mvvmarchitecture.utils.RetryCallback
 import com.example.mvvmarchitecture.utils.widgets.SpacesItemDecoration
 import kotlinx.android.synthetic.main.fragment_category_list.*
 
@@ -34,6 +35,14 @@ class CategoryListFragment : BaseFragment<FragmentCategoryListBinding, CategoryL
                 viewBinding.resource = it
                 categoryAdapter.submitList(it.data?.toMutableList())
             })
+        }
+
+        viewBinding.apply {
+            callback = object : RetryCallback {
+                override fun retry() {
+                    this@CategoryListFragment.viewModel.reLoadCategories()
+                }
+            }
         }
     }
 }

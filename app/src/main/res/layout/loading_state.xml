@@ -9,6 +9,10 @@
             name="resource"
             type="com.example.mvvmarchitecture.data.model.Resource" />
 
+        <variable
+            name="callback"
+            type="com.example.mvvmarchitecture.utils.RetryCallback" />
+
         <import type="com.example.mvvmarchitecture.data.model.Status" />
 
         <import type="com.example.mvvmarchitecture.data.model.Resource" />
@@ -44,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
+            android:onClick="@{() -> callback.retry()}"
             android:text="@string/retry"
             android:visibility="@{resource.status == Status.ERROR ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="@+id/textMessage"

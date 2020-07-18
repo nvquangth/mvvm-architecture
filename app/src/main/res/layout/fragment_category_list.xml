@@ -13,6 +13,10 @@
             name="resource"
             type="Resource" />
 
+        <variable
+            name="callback"
+            type="com.example.mvvmarchitecture.utils.RetryCallback" />
+
         <import type="com.example.mvvmarchitecture.data.model.Resource" />
 
         <import type="android.view.View" />
@@ -37,6 +41,7 @@
 
         <include
             layout="@layout/loading_state"
+            app:callback="@{callback}"
             app:resource="@{resource}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
