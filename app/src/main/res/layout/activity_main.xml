@@ -31,8 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:background="?attr/colorPrimary"
-                    android:theme="?attr/actionBarTheme"
-                    app:layout_scrollFlags="scroll|enterAlways" />
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:titleTextColor="@android:color/white" />
             </com.google.android.material.appbar.AppBarLayout>
 
             <fragment

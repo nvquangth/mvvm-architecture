@@ -2,6 +2,7 @@
     <string name="app_name">MVVM Architecture</string>
 
     <string name="category">Category</string>
+    <string name="categories">Categories</string>
 
     <string name="notification">Notification</string>
     <string name="retry">Retry</string>
