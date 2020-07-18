@@ -11,12 +11,7 @@ import androidx.core.view.updatePadding
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.example.mvvmarchitecture.BR
-import com.example.mvvmarchitecture.R
-import com.example.mvvmarchitecture.utils.dismissLoadingDialog
-import com.example.mvvmarchitecture.utils.showDialog
-import com.example.mvvmarchitecture.utils.showLoadingDialog
 
 /**
  * Created by Quang Nguyen on 6/3/20.
@@ -57,41 +52,5 @@ abstract class BaseFragment<ViewBinding : ViewDataBinding, ViewModel : BaseViewM
             lifecycleOwner = viewLifecycleOwner
             executePendingBindings()
         }
-
-        viewModel.apply {
-            isLoading.observe(viewLifecycleOwner, Observer {
-                if (it == true) {
-                    context?.showLoadingDialog()
-                } else {
-                    dismissLoadingDialog()
-                }
-            })
-            errorMessage.observe(viewLifecycleOwner, Observer {
-                dismissLoadingDialog()
-
-                showErrorMessage(it)
-            })
-            noInternetConnectionEvent.observe(viewLifecycleOwner, Observer {
-                showErrorMessage(getString(R.string.no_internet_connection))
-            })
-            connectTimeoutEvent.observe(viewLifecycleOwner, Observer {
-                showErrorMessage(getString(R.string.connect_timeout))
-            })
-            forceUpdateAppEvent.observe(viewLifecycleOwner, Observer {
-                showErrorMessage(getString(R.string.force_update_app))
-            })
-            serverMaintainEvent.observe(viewLifecycleOwner, Observer {
-                showErrorMessage(getString(R.string.server_maintain_message))
-            })
-            unknownErrorEvent.observe(viewLifecycleOwner, Observer {
-                showErrorMessage(getString(R.string.unknown_error))
-            })
-        }
-    }
-
-    private fun showErrorMessage(msg: String?) {
-        if (msg.isNullOrEmpty() || msg.isBlank()) return
-
-        context?.showDialog(message = msg)
     }
 }
