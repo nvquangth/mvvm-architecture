@@ -15,7 +15,7 @@ import kotlinx.android.parcel.Parcelize
 data class Recipe(
     @PrimaryKey
     val id: String,
-    val categoryId: String,
+    var categoryId: String,
     val name: String? = null,
     val time: Int? = null,
     val level: String? = null,
@@ -25,7 +25,9 @@ data class Recipe(
     val components: List<Component>? = null,
     @SerializedName("cook_steps")
     val cookSteps: List<Step>? = null,
+    @SerializedName("total_components")
     val totalComponent: Int? = null,
+    @SerializedName("total_steps")
     val totalStep: Int? = null,
     var isFavorite: Boolean? = null
 ) : Parcelable

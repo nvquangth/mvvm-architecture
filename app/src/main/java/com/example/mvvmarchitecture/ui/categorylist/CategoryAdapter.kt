@@ -9,7 +9,9 @@ import com.example.mvvmarchitecture.databinding.ItemCategoryBinding
 /**
  * Created by Quang Nguyen on 6/29/20.
  */
-class CategoryAdapter : BaseRecyclerViewAdapter<Category, ItemCategoryBinding>(object :
+class CategoryAdapter(
+    private val listener: ((Category) -> Unit)? = null
+) : BaseRecyclerViewAdapter<Category, ItemCategoryBinding>(object :
     DiffUtil.ItemCallback<Category>() {
     override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
         return oldItem == newItem
@@ -20,4 +22,16 @@ class CategoryAdapter : BaseRecyclerViewAdapter<Category, ItemCategoryBinding>(o
     }
 }) {
     override fun getLayoutRes(viewType: Int): Int = R.layout.item_category
+
+    override fun bindFirstTime(binding: ItemCategoryBinding) {
+        super.bindFirstTime(binding)
+
+        binding.apply {
+            root.setOnClickListener {
+                item?.let {
+                    listener?.invoke(it)
+                }
+            }
+        }
+    }
 }

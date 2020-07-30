@@ -9,5 +9,17 @@
         android:id="@+id/categoryListFragment"
         android:name="com.example.mvvmarchitecture.ui.categorylist.CategoryListFragment"
         android:label="@string/categories"
-        tools:layout="@layout/fragment_category_list" />
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/action_categoryListFragment_to_recipeListFragment"
+            app:destination="@id/recipeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeListFragment"
+        android:name="com.example.mvvmarchitecture.ui.recipelist.RecipeListFragment"
+        android:label="RecipeListFragment">
+        <argument
+            android:name="category"
+            app:argType="com.example.mvvmarchitecture.data.model.Category" />
+    </fragment>
 </navigation>

@@ -29,7 +29,7 @@ interface RecipeDao {
     fun getRecipe(id: Int): LiveData<Recipe>
 
     @Query("SELECT * FROM recipe WHERE categoryId = :categoryId")
-    fun getRecipesByCategory(categoryId: Int): LiveData<List<Recipe>>
+    fun getRecipesByCategory(categoryId: String): LiveData<List<Recipe>>
 
     @Query("SELECT * FROM recipe WHERE isFavorite = 1")
     fun getFavorites(): LiveData<List<Recipe>>
