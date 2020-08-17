@@ -1,76 +1,76 @@
 plugins {
-    id(com.example.buildsrc.GradlePlugins.androidApplication)
-    id(com.example.buildsrc.GradlePlugins.kotlin)
-    id(com.example.buildsrc.GradlePlugins.kotlinExt)
-    id(com.example.buildsrc.GradlePlugins.kotlinKapt)
-    id(com.example.buildsrc.GradlePlugins.navSafeArg)
+    id(GradlePlugins.androidApplication)
+    id(GradlePlugins.kotlin)
+    id(GradlePlugins.kotlinExt)
+    id(GradlePlugins.kotlinKapt)
+    id(GradlePlugins.navSafeArg)
 }
 
 android {
-    compileSdkVersion(com.example.buildsrc.Android.compileSdk)
-    buildToolsVersion(com.example.buildsrc.Android.buildTools)
+    compileSdkVersion(Android.compileSdk)
+    buildToolsVersion(Android.buildTools)
 
     defaultConfig {
-        applicationId = com.example.buildsrc.Android.applicationId
+        applicationId = Android.applicationId
 
-        minSdkVersion(com.example.buildsrc.Android.minSdk)
-        targetSdkVersion(com.example.buildsrc.Android.targetSdk)
+        minSdkVersion(Android.minSdk)
+        targetSdkVersion(Android.targetSdk)
 
-        versionCode = com.example.buildsrc.Android.versionCode
-        versionName = com.example.buildsrc.Android.versionNam
+        versionCode = Android.versionCode
+        versionName = Android.versionNam
 
-        testInstrumentationRunner = com.example.buildsrc.AndroidJUnit.testInstrumentationRunner
+        testInstrumentationRunner = AndroidJUnit.testInstrumentationRunner
 
         multiDexEnabled = true
     }
 
     buildTypes {
-        getByName(com.example.buildsrc.BuildType.debug) {
-            isMinifyEnabled = com.example.buildsrc.BuildType.minifyDebug
-            proguardFile(com.example.buildsrc.BuildType.proguardDebug)
+        getByName(BuildType.debug) {
+            isMinifyEnabled = BuildType.minifyDebug
+            proguardFile(BuildType.proguardDebug)
         }
 
-        getByName(com.example.buildsrc.BuildType.release) {
-            isMinifyEnabled = com.example.buildsrc.BuildType.minifyRelease
-            proguardFile(com.example.buildsrc.BuildType.proguardRelease)
+        getByName(BuildType.release) {
+            isMinifyEnabled = BuildType.minifyRelease
+            proguardFile(BuildType.proguardRelease)
         }
     }
 
     flavorDimensions("version")
     productFlavors {
-        create(com.example.buildsrc.ProductFlavor.develop) {
-            applicationId = com.example.buildsrc.ProductFlavor.applicationIdDevelop
-            versionCode = com.example.buildsrc.ProductFlavor.versionCodeDevelop
-            versionName = com.example.buildsrc.ProductFlavor.versionNameDevelop
+        create(ProductFlavor.develop) {
+            applicationId = ProductFlavor.applicationIdDevelop
+            versionCode = ProductFlavor.versionCodeDevelop
+            versionName = ProductFlavor.versionNameDevelop
 
             buildConfigField(
                 "String",
-                com.example.buildsrc.ProductFlavor.baseUrlParam,
-                com.example.buildsrc.ProductFlavor.baseUrlDevelop
+                ProductFlavor.baseUrlParam,
+                ProductFlavor.baseUrlDevelop
             )
         }
 
-        create(com.example.buildsrc.ProductFlavor.staging) {
-            applicationId = com.example.buildsrc.ProductFlavor.applicationIdStaging
-            versionCode = com.example.buildsrc.ProductFlavor.versionCodeStaging
-            versionName = com.example.buildsrc.ProductFlavor.versionNameStaging
+        create(ProductFlavor.staging) {
+            applicationId = ProductFlavor.applicationIdStaging
+            versionCode = ProductFlavor.versionCodeStaging
+            versionName = ProductFlavor.versionNameStaging
 
             buildConfigField(
                 "String",
-                com.example.buildsrc.ProductFlavor.baseUrlParam,
-                com.example.buildsrc.ProductFlavor.baseUrlStaging
+                ProductFlavor.baseUrlParam,
+                ProductFlavor.baseUrlStaging
             )
         }
 
-        create(com.example.buildsrc.ProductFlavor.production) {
-            applicationId = com.example.buildsrc.ProductFlavor.applicationIdProduction
-            versionCode = com.example.buildsrc.ProductFlavor.versionCodeProduction
-            versionName = com.example.buildsrc.ProductFlavor.versionNameProduct
+        create(ProductFlavor.production) {
+            applicationId = ProductFlavor.applicationIdProduction
+            versionCode = ProductFlavor.versionCodeProduction
+            versionName = ProductFlavor.versionNameProduct
 
             buildConfigField(
                 "String",
-                com.example.buildsrc.ProductFlavor.baseUrlParam,
-                com.example.buildsrc.ProductFlavor.baseUrlProduction
+                ProductFlavor.baseUrlParam,
+                ProductFlavor.baseUrlProduction
             )
         }
     }
@@ -94,72 +94,72 @@ android {
 }
 
 dependencies {
-    implementation(com.example.buildsrc.BuildPlugins.stdlib)
+    implementation(BuildPlugins.stdlib)
 
     // ConstraintLayout
-    implementation(com.example.buildsrc.Libs.constraintLayout)
+    implementation(Libs.constraintLayout)
 
     // Appcompat
-    implementation(com.example.buildsrc.Libs.appcompat)
+    implementation(Libs.appcompat)
 
     // Android Core
-    implementation(com.example.buildsrc.Libs.coreKtx)
+    implementation(Libs.coreKtx)
 
     // ViewModel + LiveData Lifecycle
-    implementation(com.example.buildsrc.Libs.viewModel)
-    implementation(com.example.buildsrc.Libs.liveData)
-    implementation(com.example.buildsrc.Libs.lifecycleProcessor)
+    implementation(Libs.viewModel)
+    implementation(Libs.liveData)
+    implementation(Libs.lifecycleProcessor)
 
     // Multidex
-    implementation(com.example.buildsrc.Libs.multidex)
+    implementation(Libs.multidex)
 
     // Navigation
-    implementation(com.example.buildsrc.Libs.navigationFragment)
-    implementation(com.example.buildsrc.Libs.navigationUi)
+    implementation(Libs.navigationFragment)
+    implementation(Libs.navigationUi)
 
     // RecyclerView
-    implementation(com.example.buildsrc.Libs.recyclerView)
+    implementation(Libs.recyclerView)
 
     // Room
-    implementation(com.example.buildsrc.Libs.room)
-    implementation(com.example.buildsrc.Libs.roomExt)
-    kapt(com.example.buildsrc.Libs.roomProcessor)
+    implementation(Libs.room)
+    implementation(Libs.roomExt)
+    kapt(Libs.roomProcessor)
 
     // ViewPager2
-    implementation(com.example.buildsrc.Libs.viewPager2)
+    implementation(Libs.viewPager2)
 
     // Koin
-    implementation(com.example.buildsrc.Libs.koin)
-    implementation(com.example.buildsrc.Libs.koinScope)
-    implementation(com.example.buildsrc.Libs.koinViewModel)
+    implementation(Libs.koin)
+    implementation(Libs.koinScope)
+    implementation(Libs.koinViewModel)
 
     // Retrofit
-    implementation(com.example.buildsrc.Libs.retrofit)
-    implementation(com.example.buildsrc.Libs.retrofitGson)
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitGson)
 
     // OkHttp
-    implementation(com.example.buildsrc.Libs.okHttp)
-    implementation(com.example.buildsrc.Libs.okHttpLogging)
-    testImplementation(com.example.buildsrc.Libs.okHttpMockServer)
+    implementation(Libs.okHttp)
+    implementation(Libs.okHttpLogging)
+    testImplementation(Libs.okHttpMockServer)
 
     // Glide
-    implementation(com.example.buildsrc.Libs.glide)
-    kapt(com.example.buildsrc.Libs.glideProcessor)
+    implementation(Libs.glide)
+    kapt(Libs.glideProcessor)
 
     // JUnit
-    testImplementation(com.example.buildsrc.Libs.jUnit)
-    androidTestImplementation(com.example.buildsrc.Libs.jUnitExt)
-    androidTestImplementation(com.example.buildsrc.Libs.espresso)
+    testImplementation(Libs.jUnit)
+    androidTestImplementation(Libs.jUnitExt)
+    androidTestImplementation(Libs.espresso)
 
     // Mockito
-    implementation(com.example.buildsrc.Libs.mockito)
+    implementation(Libs.mockito)
 
     // Material Design
-    implementation(com.example.buildsrc.Libs.material)
+    implementation(Libs.material)
 
     // CardView
-    implementation(com.example.buildsrc.Libs.cardView)
+    implementation(Libs.cardView)
 
     // Preference
-    implementation(com.example.buildsrc.Libs.preference)
+    implementation(Libs.preference)
 }
