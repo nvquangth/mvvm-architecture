@@ -144,10 +144,10 @@ object BuildPlugins {
 }
 
 object GradlePlugins {
-    const val androidApplication = "com.android.application"
-    const val kotlin = "kotlin-android"
-    const val kotlinExt = "kotlin-android-extensions"
-    const val kotlinKapt = "kotlin-kapt"
+    const val android= "com.android.application"
+    const val kotlinAndroid = "kotlin-android"
+    const val kotlinAndroidExt = "kotlin-android-extensions"
+    const val kotlinApt = "kotlin-kapt"
     const val navSafeArg = "androidx.navigation.safeargs.kotlin"
 }
 

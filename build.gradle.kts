@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath(kotlin(module = "gradle-plugin", version = Versions.kotlin))
         classpath(BuildPlugins.androidPlugin)
+        classpath(BuildPlugins.kotlin)
         classpath(BuildPlugins.koinPlugin)
         classpath(BuildPlugins.navSafeArg)
     }

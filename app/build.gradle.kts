@@ -1,8 +1,8 @@
 plugins {
-    id(GradlePlugins.androidApplication)
-    id(GradlePlugins.kotlin)
-    id(GradlePlugins.kotlinExt)
-    id(GradlePlugins.kotlinKapt)
+    id(GradlePlugins.android)
+    id(GradlePlugins.kotlinAndroid)
+    id(GradlePlugins.kotlinAndroidExt)
+    id(GradlePlugins.kotlinApt)
     id(GradlePlugins.navSafeArg)
 }
 
@@ -94,6 +94,7 @@ android {
 }
 
 dependencies {
+
     implementation(BuildPlugins.stdlib)
 
     // ConstraintLayout
